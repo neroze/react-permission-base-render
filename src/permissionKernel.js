@@ -18,10 +18,6 @@ export default class Permissions {
       Can: createCanBoundTo(this.permissions.ability)
     };
   };
-
-  Can = () => {
-    return;
-  };
 }
 
 class Kernel extends Permissions {
