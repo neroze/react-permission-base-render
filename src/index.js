@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 import Permissions from "./permissionKernel";
-
 // const _perm = new Permissions(["SYSTEM_ADMIN"]);
 // const _perm = new Permissions(['SCRIBE_DEVELOPER'])
 const _perm = new Permissions(["SCRIBE_MANAGER", "PLAN_MANAGER"]);
