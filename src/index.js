@@ -2,9 +2,9 @@ import React from "react";
 import { render } from "react-dom";
 import Permissions from "./permissionKernel";
 
-const _perm = new Permissions(["SYSTEM_ADMIN"]);
+// const _perm = new Permissions(["SYSTEM_ADMIN"]);
 // const _perm = new Permissions(['SCRIBE_DEVELOPER'])
-// const _perm = new Permissions(["SCRIBE_MANAGER"]);
+const _perm = new Permissions(["SCRIBE_MANAGER", "PLAN_MANAGER"]);
 
 console.log("_perm", _perm);
 const { auth, Can } = _perm.getPermission();

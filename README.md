@@ -1,13 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Lib: 
-1: https://github.com/stalniy/casl/tree/master/packages/casl-react
-2: https://stalniy.github.io/casl/abilities/2017/07/20/define-abilities.html
+### Lib: 
+1: https://github.com/stalniy/casl/tree/master/packages/casl-react <br>
+2: https://stalniy.github.io/casl/abilities/2017/07/20/define-abilities.html <br>
 
-Files
-1: permissions.js ---> role based permissions json
-2: permissionKernel ---> Permission logic based on permission defined in permission json file with 
-the help of @casl/abilities
+### Files
+1: permissions.js ---> role based permissions json  <br>
+2: permissionKernel ---> Permission logic based on permission <br>
+defined in permission json file with the help of @casl/abilities <br>
 
 ### How to 
 ```
