@@ -2,7 +2,7 @@ import allPermissions from "./permissions";
 import { AbilityBuilder, Ability } from "@casl/ability";
 import { pick, each, get, set, indexOf } from "lodash";
 import { createCanBoundTo } from "@casl/react";
-
+const { rules, can, cannot } = AbilityBuilder.extract();
 /**
  * Public class
  */
@@ -87,7 +87,6 @@ class Kernel extends Permissions {
    * @return Object
    */
   userPermissions() {
-    const { rules, can, cannot } = AbilityBuilder.extract();
     let userPermissions = {};
     let allPermissions;
     const roles = this.getRoles();
@@ -101,18 +100,20 @@ class Kernel extends Permissions {
 
     each(allPermissions, roles => {
       each(roles, (permissions, module) => {
-        each(permissions, (permission, action) => {
-          if (!get(userPermissions, `[${module}][${action}]`)) {
-            // set module based action permission
-            set(userPermissions, `[${module}][${action}]`, permission);
-            // set ability
-            if (get(userPermissions, `[${module}][${action}]`)) {
-              can(action, module);
-            } else {
-              cannot(action, module);
+        if (module) {
+          each(permissions, (permission, action) => {
+            if (!get(userPermissions, `[${module}][${action}]`)) {
+              // set module based action permission
+              set(userPermissions, `[${module}][${action}]`, permission);
+              // set ability
+              if (get(userPermissions, `[${module}][${action}]`)) {
+                can(action, module);
+              } else {
+                cannot(action, module);
+              }
             }
-          }
-        });
+          });
+        }
       });
     });
 
@@ -120,5 +121,13 @@ class Kernel extends Permissions {
       ability: new Ability(rules),
       userPermissions
     };
+  }
+
+  updatePermission(module, action, perm) {
+    if (perm === "can") {
+      can(module, action);
+    } else {
+      cannot(module, action);
+    }
   }
 }
