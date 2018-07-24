@@ -4,7 +4,6 @@ import Permissions from "./permissionKernel";
 
 const _perm = new Permissions(["SYSTEM_ADMIN"]);
 // const _perm = new Permissions(['SCRIBE_DEVELOPER'])
-
 // const _perm = new Permissions(["SCRIBE_MANAGER"]);
 
 console.log("_perm", _perm);
